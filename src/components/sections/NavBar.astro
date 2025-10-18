@@ -1,57 +1,68 @@
 ---
-// Importación usando el subpath recomendado
-import Navigation from "@sofidevo/astro-dynamic-header/Header"
-// Importación de tipos por separado para mejor rendimiento
-import type { MenuItemType } from "@sofidevo/astro-dynamic-header"
-
-// Tipado fuerte del menú usando MenuItemType
-const menuItems: MenuItemType[] = [
-	{
-		link: "/",
-		text: "Inicio",
-	},
-	{
-		link: "#",
-		text: "Categorías",
-		submenu: [
-			{ link: "/categoria/desarrollo-web", text: "Desarrollo Web" },
-			{ link: "/categoria/javascript", text: "JavaScript" },
-			{ link: "/categoria/astro", text: "Astro" },
-			{ link: "/categoria/tutoriales", text: "Tutoriales" },
-		],
-	},
-	{
-		link: "#",
-		text: "Demos",
-		submenu: [
-			{ link: "/demo-floating", text: "Header Floating" },
-			{ link: "/", text: "Header Fullscreen" },
-		],
-	},
-	{
-		link: "#",
-		text: "Recursos",
-		submenu: [
-			{ link: "/recursos/herramientas", text: "Herramientas" },
-			{ link: "/recursos/bibliotecas", text: "Bibliotecas" },
-			{ link: "/recursos/inspiracion", text: "Inspiración" },
-		],
-	},
-	{ link: "/acerca-de", text: "Acerca de" },
-	{ link: "/contacto", text: "Contacto" },
-]
+import Theme from "@/components/ThemeToggle.astro"
 ---
 
-<div class='nav-container'>
-	<Navigation
-		headerType='floating'
-		logoSrc='/favicon.png'
-		logoAlt='dev'
-		logoWidth='75px'
-		homeUrl='/'
-		menuItems={menuItems}
-		backgroundColor='var(--header-background)'
-		backdropBlur='var(--header-backdrop-blur)'
-		zIndex={100}
-	/>
-</div>
+<nav class="bg-white dark:bg-gray-900 shadow-md fixed top-0 left-0 w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      
+      <!-- LOGO -->
+      <a href="/" class="flex items-center gap-2">
+        <span class="font-bold text-gray-900 dark:text-gray-100">Astro Dev</span>
+      </a>
+
+      <!-- LINKS -->
+      <div class="hidden md:flex space-x-6">
+        <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Home</a>
+        <a href="/blog" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Blog</a>
+        <a href="/about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">About</a>
+        <a href="/contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
+				<div class="ml-12">
+					<Theme />
+				</div>
+
+      <!-- BOTÓN MENÚ MÓVIL -->
+      <button id="menu-toggle" class="md:hidden text-gray-700 dark:text-gray-300 focus:outline-none">
+        ☰
+      </button>
+    </div>
+  </div>
+
+  <!-- MENÚ MÓVIL -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-900">
+    <a href="/" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Home</a>
+    <a href="/blog" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Blog</a>
+    <a href="/about" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">About</a>
+    <a href="/contact" class="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const logo = document.getElementById('theme-logo');
+
+    // Toggle menú móvil
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Cambiar logo según tema
+    const updateLogo = () => {
+      if (!logo) return;
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (logo instanceof HTMLImageElement) {
+        logo.src = isDark ? '/astro-logo-light-gradient.svg' : '/astro-logo-light.svg';
+      }
+    };
+
+    updateLogo();
+
+    // Detectar cambios de tema
+    const observer = new MutationObserver(updateLogo);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  });
+</script>
