@@ -1,8 +1,8 @@
 ---
 import Layout from "@/layout/Layout.astro"
-import Header from "@/components/Header.astro"
-import Hero from "@/components/Hero.astro"
-import Publicaciones from "@/components/Publicaciones.astro"
+import Header from "@/components/sections/Header.astro"
+import Hero from "@/components/sections/Hero.astro"
+import Footer from "@/components/sections/Footer.astro"
 ---
 
 <Layout title='Home | Blog' description='Bienvenidos al blog - Compartiendo conocimiento sobre desarrollo web'>
@@ -12,7 +12,7 @@ import Publicaciones from "@/components/Publicaciones.astro"
 			<Hero />
 		</div>
 		<div class='flex flex-1 flex-col items-center'>
-			<Publicaciones />
+		<Footer />
 		</div>
 	</div>
 </Layout>

@@ -8,7 +8,7 @@ interface Props {
 }
 
 // Este componente define la estructura principal del documento, incluyendo head, metadatos y estilos globales.
-const { title, description, image = '/images/astro.png' } = Astro.props;
+const { title, description, image = '/astro-logo-light-gradient.svg' } = Astro.props;
 
 // Construir la URL canónica basada en Astro.site y Astro.url
 const canonicalURL = Astro.site
@@ -21,7 +21,7 @@ const canonicalURL = Astro.site
     <meta name='viewport' content='width=device-width' />
     <meta name='generator' content={Astro.generator} />
     <link rel='canonical' href={canonicalURL} />
-    <link rel='icon' type='image/png' href='/favicon.png' />
+    <link rel='icon' type='image/png' href='/astro-icon-seeklogo.svg' />
 
     <!-- ⚡ Preload de fuentes para mejorar el rendimiento -->
     <!-- <link rel='preload' href='/fonts/ProductSans-Regular.woff' as='font' type='font/woff' crossorigin='anonymous' />
@@ -43,12 +43,12 @@ const canonicalURL = Astro.site
     <meta property='og:description' content={description} />
     <meta property='og:url' content={canonicalURL} />
     <meta property='og:type' content='website' />
-    <meta property='og:image' content={image || '/favicon.svg'} />
+    <meta property='og:image' content={image || '/astro-icon-seeklogo.svg'} />
 
     <!-- Twitter -->
     <meta name='twitter:card' content='summary_large_image' />
     <meta name='twitter:title' content={title} />
     <meta name='twitter:description' content={description} />
     <meta name='twitter:url' content={canonicalURL} />
-    <meta name='twitter:image' content={image || '/favicon.svg'} />
+    <meta name='twitter:image' content={image || '/astro-icon-seeklogo.svg'} />
   </head>

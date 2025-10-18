@@ -183,18 +183,110 @@ Configuración extendida de Tailwind
 }
 
 /* =============================
-Tema Claro y Oscuro
+Tema Claro y Oscuro - Sistema Mejorado
 ============================= */
+
+/* Tema Base (Claro) */
 html {
-  --background-color: white;
-  --text-color: black;
-  color: var(--text-color);
-  background-color: var(--background-color);
+  /* Backgrounds principales */
+  --background-primary: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-tertiary: #f1f5f9;
+  --background-elevated: #ffffff;
+  
+  /* Textos */
+  --text-primary: var(--color-dark-blue);
+  --text-secondary: #64748b;
+  --text-tertiary: #94a3b8;
+  --text-inverse: #ffffff;
+  
+  /* Bordes y divisores */
+  --border-primary: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  --border-focus: #3b82f6;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Estados de interacción */
+  --hover-overlay: rgba(0, 0, 0, 0.05);
+  --active-overlay: rgba(0, 0, 0, 0.1);
+  
+  /* Elementos específicos */
+  --card-background: var(--background-elevated);
+  --input-background: var(--background-primary);
+  --nav-background: rgba(255, 255, 255, 0.8);
+  --footer-background: var(--color-dark-blue);
+  
+  /* Aplicar estilos base */
+  color: var(--text-primary);
+  background-color: var(--background-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Tema Oscuro */
 [data-theme='dark'] {
-  --background-color: #121212;
-  --text-color: #e0e0e0;
+  /* Backgrounds principales */
+  --background-primary: #0f172a;
+  --background-secondary: #1e293b;
+  --background-tertiary: #334155;
+  --background-elevated: #1e293b;
+  
+  /* Textos */
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --text-inverse: var(--color-dark-blue);
+  
+  /* Bordes y divisores */
+  --border-primary: #334155;
+  --border-secondary: #475569;
+  --border-focus: #60a5fa;
+  
+  /* Sombras más intensas para dark mode */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+  
+  /* Estados de interacción */
+  --hover-overlay: rgba(255, 255, 255, 0.1);
+  --active-overlay: rgba(255, 255, 255, 0.15);
+  
+  /* Elementos específicos */
+  --card-background: var(--background-elevated);
+  --input-background: var(--background-secondary);
+  --nav-background: rgba(15, 23, 42, 0.8);
+  --footer-background: var(--background-secondary);
+}
+
+/* Clases utilitarias para el sistema de temas */
+.bg-primary { background-color: var(--background-primary); }
+.bg-secondary { background-color: var(--background-secondary); }
+.bg-tertiary { background-color: var(--background-tertiary); }
+.bg-elevated { background-color: var(--background-elevated); }
+
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+.text-inverse { color: var(--text-inverse); }
+
+.border-primary { border-color: var(--border-primary); }
+.border-secondary { border-color: var(--border-secondary); }
+
+.shadow-theme-sm { box-shadow: var(--shadow-sm); }
+.shadow-theme-md { box-shadow: var(--shadow-md); }
+.shadow-theme-lg { box-shadow: var(--shadow-lg); }
+.shadow-theme-xl { box-shadow: var(--shadow-xl); }
+
+/* Transiciones suaves para cambio de tema */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
 }
 
 /* =============================
@@ -206,7 +298,7 @@ Estilos globales
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(169, 215, 236, 0.5);
+  /* background: rgba(169, 215, 236, 0.5); */
   z-index: -1;
 }
 
@@ -231,6 +323,21 @@ p {
 
 span {
   font-family: "Century", "century-regular", ui-sans-serif, system-ui, sans-serif;
+}
+
+input {
+  background-color: var(--input-background);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  padding: var(--spacing-2);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  
+  &:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    outline: none;
+  }
 }
 
 button {
@@ -265,4 +372,31 @@ button {
     opacity: 0.6;
     border-color: var(--color-extra-soft-white);
   }
+}
+
+/* =============================
+Theme Toggle Styles
+============================= */
+.theme-icon {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Mejorar el hover del botón de tema */
+#theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+#theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Animación de focus más suave para el botón de tema */
+#theme-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Ajustes para dark mode en el botón de tema */
+[data-theme="dark"] #theme-toggle:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
