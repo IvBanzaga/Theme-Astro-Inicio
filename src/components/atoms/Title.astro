@@ -1,0 +1,32 @@
+---
+import type { HTMLTag } from "astro/types"
+
+// Este componente se utiliza para renderizar títulos con diferentes variantes (h1, h2, etc.) y estilos.
+type Props<tag extends HTMLTag> = {
+	as?: tag
+	class?: string
+	[key: string]: unknown
+}
+const variantClasses = {
+	h1: "text-4xl font-bold mb-4 md:text-6xl text-extra-soft-white font-product",
+	h2: "text-3xl font-semibold",
+	h3: "text-2xl font-medium",
+	h4: "text-xl font-normal",
+	h5: "text-lg font-light",
+	h6: "text-base font-thin",
+}
+
+// El componente Title permite especificar el tipo de etiqueta HTML y las clases CSS personalizadas.
+const { as: Tag = "h1", class: className, ...rest } = Astro.props
+const variant = Tag as keyof typeof variantClasses
+
+const variantClass = variantClasses[variant] || "text-base"
+
+const classes = [variantClass, className].filter(Boolean).join(" ")
+---
+
+<!-- Este componente renderiza un título con las clases y propiedades especificadas. -->
+<Tag class={classes} {...rest}>
+	<slot name='title' />
+	<slot />
+</Tag>

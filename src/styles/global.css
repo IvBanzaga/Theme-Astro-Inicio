@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+/*=============================
+Variables @theme
+=============================*/
+@theme {
+  /*-----------------------------
+  Colores
+  -----------------------------*/
+  --color-dark-blue: #10151D;
+  --color-soft-white: rgb(191 199 210 / 1);
+  --color-extra-soft-white: rgb(46 60 81 / 1);
+  --color-soft-light: rgb(22 30 41 / 1);
+  /*-----------------------------
+  Fuentes
+  -----------------------------*/
+  --font-century: "Century", ui-sans-serif, system-ui;
+  --font-product: "ProductSans", ui-sans-serif, system-ui;
+  --font-heavy: "Heavy", ui-sans-serif, system-ui;
+  /*-----------------------------
+  Espaciados, radios, sombras, etc.
+  -----------------------------*/
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.5rem;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+  /*-----------------------------
+  Buttons styles and Colors
+  -----------------------------*/
+  --button-padding: 0.5rem 1rem;
+  --button-font-size: 1rem;
+  --button-border-radius: 0.5rem;
+  --button-transition: background-color 0.3s ease, color 0.3s ease;
+  --button-bg-color: var(--color-soft-white);
+  --button-text-color: var(--color-dark-blue);
+  --button-hover-bg-color: var(--color-soft-light);
+  --button-hover-text-color: var(--color-soft-white);
+  --button-active-bg-color: var(--color-dark-blue);
+  --button-active-text-color: var(--color-soft-white);
+  --button-border-color: transparent;
+  --button-hover-border-color: var(--color-soft-white);
+  --button-active-border-color: var(--color-soft-white);
+  --button-focus-border-color: var(--color-soft-white);
+  --button-focus-box-shadow: 0 0 0 3px rgba(191, 199, 210, 0.5);
+  --button-focus-outline: none;
+}
+
+/* =============================
+Configuración extendida de Tailwind
+============================= */
+@layer utilities {
+  /* =============================
+  FUENTES PERSONALIZADAS
+  ============================= */
+  .font-sans {
+    font-family: var(--font-century) !important;
+  }
+  
+  .font-product {
+    font-family: var(--font-product) !important;
+  }
+  
+  .font-heavy {
+    font-family: var(--font-heavy) !important;
+  }
+  /* =============================
+  COLORES DE TEXTO
+  ============================= */
+  .text-dark-blue {
+    color: var(--color-dark-blue) !important;
+  }
+  
+  .text-soft-white {
+    color: var(--color-soft-white) !important;
+  }
+  
+  .text-extra-soft-white {
+    color: var(--color-extra-soft-white) !important;
+  }
+  
+  .text-soft-light {
+    color: var(--color-soft-light) !important;
+  }
+  /* =============================
+  COLORES DE FONDO
+  ============================= */
+  .bg-dark-blue {
+    background-color: var(--color-dark-blue) !important;
+  }
+  
+  .bg-soft-light {
+    background-color: var(--color-soft-light) !important;
+  }
+  
+  .bg-extra-soft-white {
+    background-color: var(--color-extra-soft-white) !important;
+  }
+  
+  .bg-soft-white {
+    background-color: var(--color-soft-white) !important;
+  }
+  /* =============================
+  COLORES DE BORDE
+  ============================= */
+  .border-dark-blue {
+    border-color: var(--color-dark-blue) !important;
+  }
+  
+  .border-soft-light {
+    border-color: var(--color-soft-light) !important;
+  }
+  
+  .border-extra-soft-white {
+    border-color: var(--color-extra-soft-white) !important;
+  }
+  
+  .border-soft-white {
+    border-color: var(--color-soft-white) !important;
+  }
+  /* =============================
+  ESTADOS HOVER
+  ============================= */
+  .hover\:bg-dark-blue:hover {
+    background-color: var(--color-dark-blue) !important;
+  }
+  
+  .hover\:bg-soft-light:hover {
+    background-color: var(--color-soft-light) !important;
+  }
+  
+  .hover\:bg-extra-soft-white:hover {
+    background-color: var(--color-extra-soft-white) !important;
+  }
+  /* =============================
+  TAMAÑOS MÁXIMOS
+  ============================= */
+  .max-w-content-size {
+    max-width: 729.44px !important;
+  }
+  
+  .max-w-article-size {
+    max-width: 1028px !important;
+  }
+}
+
+/* =============================
+@font-face:definición de fuentes
+============================= */
+@font-face {
+  font-family: "Century"; src: url("/fonts/century.woff2") format("woff2"); font-weight: normal; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: "Century"; src: url("/fonts/century-bold.woff2") format("woff2"); font-weight: bold; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: "Heavy"; src: url("/fonts/heavy.woff2") format("woff2"); font-weight: normal; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: "ProductSans"; src: url("/fonts/ProductSans-Bold.woff") format("woff"); font-weight: 700; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: "ProductSans"; src: url("/fonts/ProductSans-Regular.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: "ProductSans"; src: url("/fonts/ProductSans-Medium.woff") format("woff"); font-weight: 500; font-style: normal; font-display: swap;
+}
+
+@font-face {
+  font-family: "ProductSans"; src: url("/fonts/ProductSans-Light.woff") format("woff"); font-weight: 300; font-style: normal; font-display: swap;
+}
+
+/* =============================
+Tema Claro y Oscuro
+============================= */
+html {
+  --background-color: white;
+  --text-color: black;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+[data-theme='dark'] {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+}
+
+/* =============================
+Estilos globales
+============================= */
+#background-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(169, 215, 236, 0.5);
+  z-index: -1;
+}
+
+/* =============================
+Estilos específicos para elementos
+============================= */
+h1 {
+  font-family: "Century", "century-bold", ui-sans-serif, system-ui, sans-serif;
+}
+
+h2 {
+  font-family: "ProductSans", ui-sans-serif, system-ui, sans-serif;
+}
+
+h3 {
+  font-family: "Heavy", ui-sans-serif, system-ui, sans-serif;
+}
+
+p {
+  font-family: "Century", "century-regular", ui-sans-serif, system-ui, sans-serif;
+}
+
+span {
+  font-family: "Century", "century-regular", ui-sans-serif, system-ui, sans-serif;
+}
+
+button {
+  padding: var(--button-padding);
+  font-size: var(--button-font-size);
+  border-radius: var(--button-border-radius);
+  transition: var(--button-transition);
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: 2px solid var(--button-border-color);
+  cursor: pointer;
+  
+  &:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-text-color);
+    border-color: var(--button-hover-border-color);
+  }
+  &:active {
+    background-color: var(--button-active-bg-color);
+    color: var(--button-active-text-color);
+    border-color: var(--button-active-border-color);
+  }
+  &:focus {
+    outline: var(--button-focus-outline);
+    box-shadow: var(--button-focus-box-shadow);
+    border-color: var(--button-focus-border-color);
+  }
+  &:disabled {
+    background-color: var(--color-extra-soft-white);
+    color: var(--color-soft-white);
+    cursor: not-allowed;
+    opacity: 0.6;
+    border-color: var(--color-extra-soft-white);
+  }
+}

@@ -1,0 +1,24 @@
+---
+import Head from "@/components/Head.astro"
+import Theme from "@/components/Theme.astro"
+
+// Definir el tipo de las props del Layout
+interface Props {
+	title: string
+	description: string
+	image?: string
+}
+
+const { title, description, image = "/images/astro.png" } = Astro.props
+---
+
+<!doctype html>
+<html lang='es' data-theme="dark">
+	<Head title={title} description={description} image={image} />
+	<body>
+		<div id="background-mask">
+			<Theme />
+			<slot />
+		</div>
+	</body>
+</html>

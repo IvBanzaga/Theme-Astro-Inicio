@@ -1,0 +1,54 @@
+---
+import '@/styles/global.css';
+
+interface Props {
+  title: string
+  description: string
+  image?: string
+}
+
+// Este componente define la estructura principal del documento, incluyendo head, metadatos y estilos globales.
+const { title, description, image = '/images/astro.png' } = Astro.props;
+
+// Construir la URL canónica basada en Astro.site y Astro.url
+const canonicalURL = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site)
+  : Astro.url.pathname;
+---
+  <head>
+    <!-- 🔤 Configuración básica del documento -->
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width' />
+    <meta name='generator' content={Astro.generator} />
+    <link rel='canonical' href={canonicalURL} />
+    <link rel='icon' type='image/png' href='/favicon.png' />
+
+    <!-- ⚡ Preload de fuentes para mejorar el rendimiento -->
+    <!-- <link rel='preload' href='/fonts/ProductSans-Regular.woff' as='font' type='font/woff' crossorigin='anonymous' />
+    <link rel='preload' href='/fonts/ProductSans-Bold.woff' as='font' type='font/woff' crossorigin='anonymous' />
+    <link rel='preload' href='/fonts/ProductSans-Light.woff' as='font' type='font/woff' crossorigin='anonymous' />
+    <link rel='preload' href='/fonts/ProductSans-Medium.woff' as='font' type='font/woff' crossorigin='anonymous' /> -->
+
+    <!-- 🧠 Meta etiquetas SEO y sociales dinámicas -->
+    <title>{title}</title>
+    <meta name='description' content={description} />
+    {image && <meta property='og:image' content={image} />}
+    <meta name='keywords' content='bigibai, coming soon, launch, exciting news, stay tuned' />
+    <meta name='author' content='Iván Bazaga' />
+    <meta name='robots' content='index, follow' />
+    <meta name='theme-color' content='#ffffff' />
+
+    <!-- Open Graph / Facebook -->
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
+    <meta property='og:url' content={canonicalURL} />
+    <meta property='og:type' content='website' />
+    <meta property='og:image' content={image || '/favicon.svg'} />
+
+    <!-- Twitter -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content={title} />
+    <meta name='twitter:description' content={description} />
+    <meta name='twitter:url' content={canonicalURL} />
+    <meta name='twitter:image' content={image || '/favicon.svg'} />
+  </head>

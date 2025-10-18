@@ -1,0 +1,9 @@
+<div class="fixed top-4 right-4 z-50">
+	<button
+		onclick="document.documentElement.getAttribute('data-theme') === 'dark'
+			? document.documentElement.removeAttribute('data-theme')
+			: document.documentElement.setAttribute('data-theme', 'dark')"
+		class='bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-4 py-2 rounded shadow hover:shadow-md transition-shadow duration-300'>
+		Toggle Theme
+	</button>
+</div>

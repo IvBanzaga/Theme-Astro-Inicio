@@ -1,0 +1,18 @@
+---
+import Layout from "@/layout/Layout.astro"
+import Header from "@/components/Header.astro"
+import Hero from "@/components/Hero.astro"
+import Publicaciones from "@/components/Publicaciones.astro"
+---
+
+<Layout title='Home | Blog' description='Bienvenidos al blog - Compartiendo conocimiento sobre desarrollo web'>
+	<div class='flex min-h-screen flex-col'>
+		<Header />
+		<div class='flex flex-1 flex-col items-center mt-18'>
+			<Hero />
+		</div>
+		<div class='flex flex-1 flex-col items-center'>
+			<Publicaciones />
+		</div>
+	</div>
+</Layout>
