@@ -53,7 +53,24 @@ Variables @theme
   --button-focus-border-color: var(--color-soft-white);
   --button-focus-box-shadow: 0 0 0 3px rgba(191, 199, 210, 0.5);
   --button-focus-outline: none;
+
+    /*-----------------------------
+  Botón Azul (Primary)
+  -----------------------------*/
+  --button-primary-bg-color: #007BFF;
+  --button-primary-text-color: #ffffff;
+  --button-primary-border-color: #007BFF;
+  --button-primary-hover-bg-color: #0056b3;
+  --button-primary-hover-border-color: #0056b3;
+  --button-primary-active-bg-color: #004085;
+  --button-primary-active-border-color: #004085;
+  --button-primary-focus-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
+  --button-primary-disabled-bg-color: #b8daff;
+  --button-primary-disabled-border-color: #b8daff;
+  --button-primary-disabled-text-color: #e2e6ea;
+
 }
+
 
 /* =============================
 Configuración extendida de Tailwind
@@ -341,7 +358,7 @@ input {
     outline: none;
   }
 }
-
+/* Button Versión base */
 button {
   padding: var(--button-padding);
   font-size: var(--button-font-size);
@@ -375,6 +392,35 @@ button {
     border-color: var(--color-extra-soft-white);
   }
 }
+
+/* Segunda versión: botón azul */
+button.button-primary {
+  background-color: var(--button-primary-bg-color);
+  color: var(--button-primary-text-color);
+  border-color: var(--button-primary-border-color);
+
+  &:hover {
+    background-color: var(--button-primary-hover-bg-color);
+    border-color: var(--button-primary-hover-border-color);
+  }
+
+  &:active {
+    background-color: var(--button-primary-active-bg-color);
+    border-color: var(--button-primary-active-border-color);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--button-primary-focus-shadow);
+  }
+
+  &:disabled {
+    background-color: var(--button-primary-disabled-bg-color);
+    border-color: var(--button-primary-disabled-border-color);
+    color: var(--button-primary-disabled-text-color);
+  }
+}
+
 
 /* =============================
 Theme Toggle Styles
