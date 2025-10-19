@@ -18,10 +18,12 @@ const { title, description, image = "/astro-logo-light-gradient.svg" } = Astro.p
 <html lang='es' data-theme='dark'>
 	<Head title={title} description={description} image={image} />
 	<body>
+		<!-- min-h-screen w-full, es para que el contenido ocupe toda la altura de la pantalla -->
 		<div class='min-h-screen w-full'>
 			<NavBar />
-			<Header />
-			<div class='relative z-2'>
+			<!-- flex min-h-screen flex-col, es para que el contenido ocupe toda la altura de la pantalla -->
+			<div class='flex min-h-screen flex-col'> 
+				<Header />
 				<slot />
 			</div>
 		</div>

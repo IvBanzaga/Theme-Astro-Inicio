@@ -1,60 +1,73 @@
-# Plantilla Astro
 
-Una plantilla base moderna para proyectos Astro con Tailwind CSS.
+# 🚀 Plantilla Astro Minimal
 
-## 🚀 Características
+Una plantilla base moderna para proyectos Astro con Tailwind CSS, lista para producción y personalización.
 
-- ⚡ **Astro 5** - Framework web moderno y rápido
-- 🎨 **Tailwind CSS 4** - Framework CSS utilitario
-- 📱 **Responsive** - Diseño adaptable a todos los dispositivos
-- ♿ **Accesible** - Desarrollado con las mejores prácticas de accesibilidad
-- 🎯 **SEO Optimizado** - Meta tags y estructura semántica
+## ✨ Características principales
 
-## 🛠️ Instalación
+- ⚡ **Astro 5**: Framework web moderno y ultrarrápido
+- 🎨 **Tailwind CSS 4**: Utilidades CSS listas para usar
+- 📱 **Responsive**: Diseño adaptable a cualquier dispositivo
+- ♿ **Accesible**: Mejores prácticas de accesibilidad
+- 🛡️ **SEO Optimizado**: Meta tags y estructura semántica
+- 🧩 **Componentes reutilizables**: Estructura clara y escalable
+
+---
+
+## 🛠️ Instalación rápida
+
+Puedes crear un nuevo proyecto basado en esta plantilla con:
 
 ```sh
-# Clona este repositorio
-git clone <tu-repositorio>
-
-# Instala las dependencias
+npm create astro@latest -- --template IvBanzaga/theme-astro
+# o usando pnpm
+yarn create astro --template IvBanzaga/theme-astro
+# o clona el repositorio manualmente
+git clone https://github.com/IvBanzaga/theme-astro.git
+cd theme-astro
 pnpm install
-
-# Inicia el servidor de desarrollo
 pnpm dev
 ```
 
-## 🚀 Project Structure
+---
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📁 Estructura del proyecto
 
 ```text
 /
-├── public/
+├── public/           # Archivos estáticos (imágenes, fuentes, etc.)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/       # Recursos como imágenes o fuentes
+│   ├── components/   # Componentes Astro y UI
+│   ├── layout/       # Layouts reutilizables
+│   ├── pages/        # Páginas del sitio (rutas)
+│   └── styles/       # Hojas de estilo globales
+├── package.json      # Dependencias y scripts
+└── astro.config.mjs  # Configuración de Astro
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🧑‍💻 Comandos útiles
 
-Any static assets, like images, can be placed in the `public/` directory.
+Todos los comandos se ejecutan desde la raíz del proyecto:
 
-## 🧞 Commands
+| Comando              | Acción                                                        |
+|----------------------|--------------------------------------------------------------|
+| `pnpm install`       | Instala las dependencias                                      |
+| `pnpm dev`           | Inicia el servidor de desarrollo en `localhost:4321`          |
+| `pnpm build`         | Genera el sitio listo para producción en `./dist/`            |
+| `pnpm preview`       | Previsualiza el sitio generado localmente                     |
+| `pnpm astro ...`     | Ejecuta comandos CLI de Astro (`astro add`, `astro check`, etc)|
 
-All commands are run from the root of the project, from a terminal:
+---
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## 📚 Recursos y documentación
 
-## 👀 Want to learn more?
+- [Documentación oficial de Astro](https://docs.astro.build)
+- [Tailwind CSS](https://tailwindcss.com/docs/installation)
+- [Discord de Astro](https://astro.build/chat)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+¡Personaliza esta plantilla y crea tu web moderna en minutos!
