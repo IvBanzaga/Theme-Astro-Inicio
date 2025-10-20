@@ -19,7 +19,7 @@ Una plantilla base moderna para proyectos Astro con Tailwind CSS, lista para pro
 Puedes crear un nuevo proyecto basado en esta plantilla con:
 
 ```sh
-npm create astro@latest -- --template IvBanzaga/theme-astro
+npm create astro@latest -- --template github:IvBanzaga/theme-astro
 # o usando pnpm
 yarn create astro --template IvBanzaga/theme-astro
 # o clona el repositorio manualmente
