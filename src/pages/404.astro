@@ -3,6 +3,9 @@ import Layout from "@/layout/Layout.astro"
 
 import Image from "astro/components/Image.astro"
 import portada from "@/assets/404.png"
+
+import AstrIcon from "@/assets/astro.svg"
+import AstroIcon from "@/components/icons/AstroIcon.astro"
 ---
 
 <Layout title='Not Found 💫' description='Página no encontrada'>
@@ -20,6 +23,7 @@ import portada from "@/assets/404.png"
 					onclick="window.location.href='/'">
 					Volver al inicio
 				</button>
+				<AstroIcon class="" fill="var(--button-primary-bg-color)" width="100" height="100" />
 			</div>
 		</div>
 	</div>
