@@ -1,11 +1,15 @@
 ---
 import Layout from "@/layout/Layout.astro"
 import Hero from "@/components/sections/Hero.astro"
+import Header from "@/components/sections/Header.astro"
 ---
 
 <Layout title='Home | Blog' description='Bienvenidos al blog - Compartiendo conocimiento sobre desarrollo web'>
+	<div class='flex flex-col'>
+		<Header />
+	</div>
 	<!-- flex flex-1 , es para que el contenido ocupe toda la altura de la pantalla -->
-		<div class='flex flex-1'>
-			<Hero />
-		</div>
+	<div class='flex flex-col'>
+		<Hero />
+	</div>
 </Layout>
