@@ -4,13 +4,13 @@
 
 ## Formato
 
-Todos los mensajes de commit **deben** seguir la especificación [Conventional Commits](https://www.conventionalcommits.org/):
+Todos los mensajes de commit **deben** seguir la especificación [Conventional Commits][1]:
 
 <type>(<scope>): <short description>
 
 ## Format
 
-All commit messages **must** follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+All commit messages **must** follow the [Conventional Commits][1] specification:
 
 ```
 <type>(<scope>): <short description>
@@ -66,4 +66,7 @@ related unit tests.
 ---
 
 **In short:**  
-Write clear, consistent, and meaningful commit messages — they are part of your project’s documentation.
+Write clear, consistent, and meaningful commit messages — they are part of your project's documentation.
+
+[1]: https://www.conventionalcommits.org/
+
