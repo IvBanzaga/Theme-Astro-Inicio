@@ -17,6 +17,7 @@
     "astro-bootstrap": "^0.7.2",
     "bootstrap": "^5.3.8",
     "lucide-astro": "^0.546.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
