@@ -16,17 +16,30 @@ const { title, description, image = "/astro-logo-light-gradient.svg" } = Astro.p
 
 <!doctype html>
 <html lang='es' data-theme='dark'>
-	<Head title={title} description={description} image={image} />
-	<body>
-		<!-- min-h-screen w-full, es para que el contenido ocupe toda la altura de la pantalla -->
-		<div class='min-h-screen w-full'>
-			<NavBar />
-			<!-- flex min-h-screen flex-col, es para que el contenido ocupe toda la altura de la pantalla -->
-			<div class='flex min-h-screen flex-col'> 
-				<Header />
-				<slot />
-			</div>
-		</div>
-		<Footer />
-	</body>
+  <Head title={title} description={description} image={image} />
+  <body class='flex flex-col min-h-screen'>
+    <!--
+      NavBar: se mantiene arriba de todo.
+      body:
+        - flex flex-col: organiza los elementos hijos en columna.
+        - min-h-screen: asegura que el body ocupe al menos toda la altura de la ventana.
+    -->
+    <NavBar />
+
+    <main class='flex-1 flex flex-col items-center justify-center'>
+      <!--
+        main:
+          - flex-1: hace que el contenido principal crezca para ocupar el espacio disponible.
+          - flex flex-col: organiza el contenido en columna.
+          - items-center: centra horizontalmente.
+          - justify-center: centra verticalmente.
+        Con esto, el contenido se mantiene centrado si es pequeño y empuja el footer al final si es más grande.
+      -->
+      <slot />
+    </main>
+
+    <!-- Footer se mantiene siempre al final, sin generar scroll extra innecesario -->
+    <Footer />
+  </body>
 </html>
+
